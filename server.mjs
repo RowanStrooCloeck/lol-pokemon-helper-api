@@ -6,11 +6,12 @@ import axios from "axios";
 const app = express(),
     port = 3000;
 const API_KEY = process.env.API_KEY;
+const CORS = process.env.CORS;
 
 app.use(bodyParser.json());
 
 app.get('/champion-mastery/:region/:summoner', async function (req, res) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Origin', CORS);
     res.header(
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
@@ -31,7 +32,7 @@ app.get('/champion-mastery/:region/:summoner', async function (req, res) {
 });
 
 app.get('/challenge', async function(req, res) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Origin', CORS);
     res.header(
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
