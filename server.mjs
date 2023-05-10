@@ -7,6 +7,7 @@ const app = express(),
     port = 3000;
 const API_KEY = process.env.API_KEY;
 const CORS = process.env.CORS;
+const patchVersion = "13.9.1";
 
 app.use(bodyParser.json());
 
@@ -53,7 +54,7 @@ app.get('/challenge', async function(req, res) {
 });
 
 async function getChampionData(mastery) {
-    const response = await axios.get('http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion.json');
+    const response = await axios.get(`http://ddragon.leagueoflegends.com/cdn/${patchVersion}/data/en_US/champion.json`);
     const data = response.data.data;
     const returnData = [];
     for (const key in data) {
