@@ -7,7 +7,7 @@ const app = express(),
     port = 3000;
 const API_KEY = process.env.API_KEY;
 const CORS = process.env.CORS;
-const patchVersion = "13.9.1";
+const patchVersion = process.env.PATCH_VERSION;
 
 app.use(bodyParser.json());
 
