@@ -23,7 +23,7 @@ app.get('/champion-mastery/:region/:summoner', async function (req, res) {
         axios.defaults.headers.common['X-Riot-Token'] = API_KEY;
         const summonerResponse = await axios.get(`${apiUrl}/summoner/v4/summoners/by-name/${summonerName}`);
         const puuid = summonerResponse.data.puuid;
-        const masteryResponse = await axios.get(`${apiUrl}/champion-mastery/v4/champion-masteries/by-summoner/${puuid}`);
+        const masteryResponse = await axios.get(`${apiUrl}/champion-mastery/v4/champion-masteries/by-puuid/${puuid}`);
         const championData = await getChampionData(masteryResponse.data);
         res.send(championData);
     } catch (e) {
