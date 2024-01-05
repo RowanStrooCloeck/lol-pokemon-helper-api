@@ -54,7 +54,7 @@ app.get('/challenge', async function(req, res) {
 
 async function getChampionData(mastery) {
     const versions = await axios.get(`https://ddragon.leagueoflegends.com/api/versions.json`);
-    const patchVersion = versions[0];
+    const patchVersion = versions.data[0];
     const response = await axios.get(`http://ddragon.leagueoflegends.com/cdn/${patchVersion}/data/en_US/champion.json`);
     const data = response.data.data;
     const returnData = [];
