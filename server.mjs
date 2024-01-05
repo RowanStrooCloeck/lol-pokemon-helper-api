@@ -87,6 +87,12 @@ async function getChampionData(mastery) {
     return returnData;
 }
 
+app.get('/latestVersion', async function(req, res) {
+    const versions = await axios.get(`https://ddragon.leagueoflegends.com/api/versions.json`);
+    const latest = versions.data[0]
+    res.send({ latest });
+});
+
 app.listen(port, () => {
     console.log(`Server listening on the port::${port}`);
 });
